@@ -2031,4 +2031,8 @@ footer {
     .packages-grid {
         grid-template-columns: 1fr;
     }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
 }
