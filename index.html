@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marine 29 | Водоизмещающая килевая лодка премиум-класса</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Современное меню навигации -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <div class="logo-img">
+                    <img src="./img/logo.png" alt="logo">
+                </div>
+                <span>НЕВСКАЯ СУДОВЕРФЬ</span>
+            </div>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul>
+                    <li><a href="#features"><i class="fas fa-star"></i> Особенности</a></li>
+                    <li><a href="#gallery"><i class="fas fa-images"></i> Галерея</a></li>
+                    <li><a href="#specs"><i class="fas fa-list-alt"></i> Характеристики</a></li>
+                    <li><a href="#packages"><i class="fas fa-cubes"></i> Комплектации</a></li>
+                    <li><a href="#contact"><i class="fas fa-phone-alt"></i> Контакты</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Герой с контентом прижатым к низу -->
+    <section class="hero">
+        <div class="container animate">
+            <h1>Водоизмещающая килевая лодка Marine 900</h1>
+            <p>Идеальное сочетание комфорта, надежности и мореходных качеств для ваших морских приключений</p>
+            <button class="btn" data-modal-open>Оставить заявку <i class="fas fa-arrow-right"></i></button>
+        </div>
+    </section>
+    <!-- Countdown and Form Section -->
+    <section class="countdown-form">
+        <div class="container">
+            <div class="countdown-form__content">
+                <!-- Countdown Block -->
+                <div class="countdown-form__countdown">
+                    <h3 class="countdown-form__title">ДО КОНЦА АКЦИИ ОСТАЛОСЬ:</h3>
+                    <div class="countdown-form__timer">
+                        <div class="timer-item">
+                            <span class="timer-unit"><span class="timer-unit-text">6</span></span>
+                            <span class="timer-label">ДНЕЙ</span>
+                        </div>
+                        <div class="timer-item">
+                            <span class="timer-unit"><span class="timer-unit-text">5</span></span>
+                            <span class="timer-label">ЧАСОВ</span>
+                        </div>
+                        <div class="timer-item">
+                            <span class="timer-unit"><span class="timer-unit-text">54</span></span>
+                            <span class="timer-label">МИНУТ</span>
+                        </div>
+                        <div class="timer-item">
+                            <span class="timer-unit"><span class="timer-unit-text">25</span></span>
+                            <span class="timer-label">СЕКУНД</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Form Block -->
+                <div class="countdown-form__form">
+                    <div class="countdown-form__form-input-wrapper">
+                        <input type="text" class="form-input" placeholder="Номер телефона">
+                        <button class="form-button" data-modal-open>ПОЛУЧИТЬ ПРЕДЛОЖЕНИЕ</button>
+                    </div>
+                    <label class="form-checkbox">
+                        <input type="checkbox" checked>
+                        <span class="checkbox-text">Я согласен с условиями обработки персональных данных</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Особенности -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title">ОСОБЕННОСТИ MARINE 900</h2>
+            <div class="features-grid">
+                <div class="feature-item animate delay-1">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Прочность</h3>
+                    <p>Корпус из высококачественного стеклопластика обеспечивает долговечность и надежность</p>
+                </div>
+                <div class="feature-item animate delay-2">
+                    <div class="feature-icon">
+                        <i class="fas fa-couch"></i>
+                    </div>
+                    <h3>Комфорт</h3>
+                    <p>Просторная каюта с полноценными спальными местами и кухонной зоной</p>
+                </div>
+                <div class="feature-item animate delay-1">
+                    <div class="feature-icon">
+                        <i class="fas fa-water"></i>
+                    </div>
+                    <h3>Мореходность</h3>
+                    <p>Отличные ходовые качества даже в сложных погодных условиях</p>
+                </div>
+                <div class="feature-item animate delay-2">
+                    <div class="feature-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <h3>Безопасность</h3>
+                    <p>Соответствие всем международным стандартам безопасности</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Карточка катера -->
+    <section class="boat-card">
+        <div class="container">
+            <h2 class="boat-card__title">MARINE 900</h2>
+            <p class="boat-card__subtitle">ВЫБРАТЬ КОМПЛЕКТАЦИЮ <span class="arrow">→</span></p>
+            <div class="boat-card__content">
+                
+                <!-- Левая часть: Название и изображение катера -->
+                <div class="boat-card__left">
+                    
+                    <div class="boat-card__image">
+                        <img src="img/лодка3.jpg" alt="Marine 900">
+                    </div>
+                   
+                </div>
+                <!-- Правая часть: Цена, характеристики и кнопка -->
+                <div class="boat-card__right">
+                    <div class="boat-card__price">
+                        <span class="price-discount">–100 000₽</span>
+                        <h3 class="price-title">АКЦИЯ ДО 13 МАЯ</h3>
+                        <p class="price-subtitle">ИДЕАЛЬНЫЙ КАТЕР ДЛЯ ОТДЫХА</p>
+                    </div>
+                    <div class="boat-card__features">
+                        <div class="boat-card__feature-item">
+                            <span class="boat-card__feature-icon"><i class="fas fa-users"></i></span>
+                            <p>ИНДИВИДУАЛЬНАЯ РАССРОЧКА</p>
+                        </div>
+                        <div class="boat-card__feature-item">
+                            <span class="boat-card__feature-icon"><i class="fas fa-cog"></i></span>
+                            <p>ОПЦИИ НА ВЫБОР</p>
+                        </div>
+                    </div>
+                    <button class="boat-card__button" data-modal-open>УЗНАТЬ ЛУЧШУЮ ЦЕНУ</button>
+                   
+                </div>
+
+            </div>
+          
+        </div>
+    </section>
+    
+    <!-- Галерея с современным слайдером -->
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <!-- <h2 class="gallery-title">ГАЛЕРЕЯ</h2> -->
+            <div class="gallery-tabs">
+                <button class="tab-btn active" data-tab="exterior">Экстерьер</button>
+                <button class="tab-btn" data-tab="interior">Интерьер</button>
+            </div>
+            <div class="slider-wrapper">
+                <!-- Слайдер для экстерьера -->
+                <div class="slider-container active" id="exterior-slider">
+                    <div class="slider">
+                        <div class="slider-slide">
+                            <img src="img/IMG_3617.jpeg" alt="Marine 29 вид сбоку" loading="lazy">
+                        </div>
+                        <div class="slider-slide">
+                            <img src="img/aurora_new.jpg" alt="Marine 29 палуба" loading="lazy">
+                        </div>
+                        <div class="slider-slide">
+                            <img src="img/1698062748852.jpg" alt="Marine 29 схемы" loading="lazy">
+                        </div>
+                        <div class="slider-slide">
+                            <img src="img/IMG_3600.jpeg" alt="Marine 29 схемы" loading="lazy">
+                        </div>
+                        <div class="slider-slide">
+                            <img src="img/IMG_3679.jpeg" alt="Marine 29 схемы" loading="lazy">
+                        </div>
+                        <div class="slider-slide">
+                            <img src="img/IMG_3672.jpeg" alt="Marine 29 схемы" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="slider-nav">
+                        <button class="slider-btn slider-prev" aria-label="Предыдущая фотография"><i class="fas fa-chevron-left"></i></button>
+                        <button class="slider-btn slider-next" aria-label="Следующая фотография"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+                <!-- Слайдер для интерьера -->
+                <div class="slider-container" id="interior-slider">
+                    <div class="slider">
+                        <div class="slider-slide">
+                            <img src="img/IMG_3633.jpeg" alt="Marine 29 интерьер" loading="lazy">
+                        </div>
+                        <div class="slider-slide">
+                            <img src="img/IMG_3638.jpeg" alt="Marine 29 интерьер 2" loading="lazy">
+                        </div>
+                        <div class="slider-slide">
+                            <img src="img/170.jpg" alt="Marine 29 интерьер 3" loading="lazy">
+                        </div>
+                        <div class="slider-slide">
+                            <img src="img/189.jpg" alt="Marine 29 интерьер" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="slider-nav">
+                        <button class="slider-btn slider-prev" aria-label="Предыдущая фотография"><i class="fas fa-chevron-left"></i></button>
+                        <button class="slider-btn slider-next" aria-label="Следующая фотография"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section class="section videos" id="videos">
+            <div class="container">
+                <h2 class="section-title">ВИДЕО</h2>
+                <div class="videos-wrapper">
+                    <div class="video-item video-wide">
+                        <iframe 
+                            src="https://rutube.ru/play/embed/c6e72729544d8143c47c139bf1f74f85" 
+                            frameborder="0" 
+                            allowfullscreen
+                            title="Marine 29 - Широкоформатное видео">
+                        </iframe>
+                    </div>
+                    <div class="video-item video-vertical">
+                        <iframe 
+                            src="https://rutube.ru/play/embed/bae9bb259af11ef702a6bf0c40deec65" 
+                            frameborder="0" 
+                            allowfullscreen
+                            title="Marine 29 - Вертикальное видео">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </section>    
+    </section>
+        <!-- CTA секция -->
+        <section class="section cta" id="contact">
+            <div class="container">
+                <h2 class="animate">Хотите узнать подробнее и получить расчет Вашего катера?</h2>
+                <p class="animate delay-1">Оставьте заявку прямо сейчас и наш менеджер свяжется с вами для уточнения деталей</p>
+                <button class="btn animate delay-2" data-modal-open>Оставить заявку <i class="fas fa-arrow-right"></i></button>
+            </div>
+        </section>
+    
+    <!-- Технические характеристики -->
+    <section class="specs" id="specs">
+        <div class="container">
+            <h2 class="section-title">ТЕХНИЧЕСКИЕ ХАРАКТЕРИСТИКИ</h2>
+            <div class="specs-grid">
+                <div class="spec-card animate">
+                    <div class="spec-icon"><i class="fas fa-ruler-combined"></i></div>
+                    <div class="spec-content">
+                        <span class="spec-value">9.3 м</span>
+                        <span class="spec-label">Длина</span>
+                    </div>
+                </div>
+                <div class="spec-card animate delay-1">
+                    <div class="spec-icon"><i class="fas fa-ruler-horizontal"></i></div>
+                    <div class="spec-content">
+                        <span class="spec-value">2.1 м</span>
+                        <span class="spec-label">Ширина</span>
+                    </div>
+                </div>
+                <div class="spec-card animate delay-2">
+                    <div class="spec-icon"><i class="fas fa-tint"></i></div>
+                    <div class="spec-content">
+                        <span class="spec-value">0.4 м</span>
+                        <span class="spec-label">Осадка</span>
+                    </div>
+                </div>
+                <div class="spec-card animate">
+                    <div class="spec-icon"><i class="fas fa-weight"></i></div>
+                    <div class="spec-content">
+                        <span class="spec-value">4500 кг</span>
+                        <span class="spec-label">Водоизмещение</span>
+                    </div>
+                </div>
+                <div class="spec-card animate delay-1">
+                    <div class="spec-icon"><i class="fas fa-users"></i></div>
+                    <div class="spec-content">
+                        <span class="spec-value">12 человек</span>
+                        <span class="spec-label">Пассажировместимость</span>
+                    </div>
+                </div>
+                <div class="spec-card animate delay-2">
+                    <div class="spec-icon"><i class="fas fa-bed"></i></div>
+                    <div class="spec-content">
+                        <span class="spec-value">2</span>
+                        <span class="spec-label">Спальные места</span>
+                    </div>
+                </div>
+                <div class="spec-card animate">
+                    <div class="spec-icon"><i class="fas fa-cog"></i></div>
+                    <div class="spec-content">
+                        <span class="spec-value">50-200 л.с.</span>
+                        <span class="spec-label">Дизельный двигатель</span>
+                    </div>
+                </div>
+                <div class="spec-card animate delay-1">
+                    <div class="spec-icon"><i class="fas fa-gas-pump"></i></div>
+                    <div class="spec-content">
+                        <span class="spec-value">300 л</span>
+                        <span class="spec-label">Топливный бак</span>
+                    </div>
+                </div>
+                <div class="spec-card animate delay-2">
+                    <div class="spec-icon"><i class="fas fa-tint"></i></div>
+                    <div class="spec-content">
+                        <span class="spec-value">200 л</span>
+                        <span class="spec-label">Пресная вода</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Комплектации -->
+    <section class="packages" id="packages">
+        <div class="container">
+            <h2 class="section-title">КОМПЛЕКТАЦИИ И ЦЕНЫ</h2>
+            <div class="packages-grid">
+                <div class="package-card animate delay-1">
+                    <div class="package-header">
+                        <h3>STANDARD</h3>
+                        <div class="package-price">от 2 450 000 ₽</div>
+                    </div>
+                    <div class="package-body">
+                        <ul class="package-features">
+                            <li><i class="fas fa-check"></i> Корпус из стеклопластика</li>
+                            <li><i class="fas fa-check"></i> Дизельный двигатель 50 л.с.</li>
+                            <li><i class="fas fa-check"></i> Базовый набор навигации</li>
+                            <li><i class="fas fa-check"></i> Стандартная отделка салона</li>
+                            <li><i class="fas fa-check"></i> Основные спальные места</li>
+                            <li><i class="fas fa-check"></i> Базовый набор безопасности</li>
+                        </ul>
+                        <button class="package-btn" data-modal-open>Заказать</button>
+                    </div>
+                </div>
+
+                <div class="package-card animate">
+                    <div class="package-header">
+                        <h3>COMFORT</h3>
+                        <div class="package-price">от 3 150 000 ₽</div>
+                    </div>
+                    <div class="package-body">
+                        <ul class="package-features">
+                            <li><i class="fas fa-check"></i> Всё из комплектации Standard</li>
+                            <li><i class="fas fa-check"></i> Дизельный двигатель 75 л.с.</li>
+                            <li><i class="fas fa-check"></i> Расширенная навигационная система</li>
+                            <li><i class="fas fa-check"></i> Улучшенная отделка салона</li>
+                            <li><i class="fas fa-check"></i> Дополнительные спальные места</li>
+                            <li><i class="fas fa-check"></i> Холодильник и плита</li>
+                            <li><i class="fas fa-check"></i> Улучшенная система безопасности</li>
+                        </ul>
+                        <button class="package-btn" data-modal-open>Заказать</button>
+                    </div>
+                </div>
+
+                <div class="package-card animate delay-1">
+                    <div class="package-header">
+                        <h3>PREMIUM</h3>
+                        <div class="package-price">от 4 200 000 ₽</div>
+                    </div>
+                    <div class="package-body">
+                        <ul class="package-features">
+                            <li><i class="fas fa-check"></i> Всё из комплектации Comfort</li>
+                            <li><i class="fas fa-check"></i> Дизельный двигатель 100 л.с.</li>
+                            <li><i class="fas fa-check"></i> Полный комплект навигации</li>
+                            <li><i class="fas fa-check"></i> Премиальная отделка салона</li>
+                            <li><i class="fas fa-check"></i> Кондиционер и отопление</li>
+                            <li><i class="fas fa-check"></i> Солнечные панели</li>
+                            <li><i class="fas fa-check"></i> Полный комплект безопасности</li>
+                            <li><i class="fas fa-check"></i> Дополнительные опции по выбору</li>
+                        </ul>
+                        <button class="package-btn" data-modal-open>Заказать</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="about" id="about">
+        <div class="container">
+            <!-- Верхняя часть: фото слева, текст справа -->
+            <div class="about__content">
+                <div class="about__image-wrapper">
+                    <img src="img/IMG_3617.jpeg" alt="Невская судоверфь" class="about__image">
+                </div>
+                <div class="about__info">
+                    <h2 class="about__title">О нас</h2>
+                    <p class="about__text">
+                        ООО «Невская Судоверфь» — эксперт в создании судов из композитных материалов. Мы сочетаем многолетний опыт, передовые технологии и мастерство наших специалистов, чтобы производить надёжные лодки, катера и шлюпки. Наша миссия — дарить вам уверенность на воде.
+                    </p>
+                </div>
+            </div>
+    
+            <!-- Нижняя часть: текст слева, фото справа -->
+            <div class="about__content">
+                <div class="about__info">
+                    <h3 class="about__subtitle">Слагаемыми успеха компании являются</h3>
+                    <ul class="about__list">
+                        <li class="about__list-item">
+                            <strong>Качество без компромиссов</strong>: Наши суда — это скорость, манёвренность и долговечность, проверенные морской практикой.
+                        </li>
+                        <li class="about__list-item">
+                            <strong>Надёжность на годы</strong>: Используем только высококачественные материалы, чтобы ваши приключения длились десятилетиями.
+                        </li>
+                    </ul>
+                </div>
+                <div class="about__image-wrapper">
+                    <img src="img/IMG_3600.jpeg" alt="Продукция Невской судоверфи" class="about__image">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA секция -->
+    <section class="section cta" id="contact">
+        <div class="container">
+            <h2 class="animate">ГОТОВЫ К ПОКУПКЕ?</h2>
+            <p class="animate delay-1">Оставьте заявку прямо сейчас и наш менеджер свяжется с вами для уточнения деталей</p>
+            <button class="btn animate delay-2" data-modal-open>Оставить заявку <i class="fas fa-arrow-right"></i></button>
+        </div>
+    </section>
+    <!-- Секция FAQ перед футером -->
+<section class="faq section">
+    <div class="container">
+        <h2 class="section-title">FAQ</h2>
+        <div class="faq__list">
+            <details class="faq__item">
+                <summary class="faq__question">
+                    <svg class="faq__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2l10 6.5v7L12 22 2 15.5v-7L12 2zM12 2v20M2 8.5l10 6.5 10-6.5"/>
+                    </svg>
+                    Если в наличии катера?
+                </summary>
+                <div class="faq__answer">
+                    <p>Катера строим под заказ с учетом предполагаемых условий эксплуатации и ваших пожеланий.</p>
+                </div>
+            </details>
+            <details class="faq__item">
+                <summary class="faq__question">
+                    <svg class="faq__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2l10 6.5v7L12 22 2 15.5v-7L12 2zM12 2v20M2 8.5l10 6.5 10-6.5"/>
+                    </svg>
+                    Для каких целей предназначен катер «Marina 900»?
+                </summary>
+                <div class="faq__answer">
+                    <p>Катер «Marina 900» — это маломерное судно 9,3 метра, которое предназначено как для семейного отдыха, так и для водного туризма.</p>
+                </div>
+            </details>
+            <details class="faq__item">
+                <summary class="faq__question">
+                    <svg class="faq__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2l10 6.5v7L12 22 2 15.5v-7L12 2zM12 2v20M2 8.5l10 6.5 10-6.5"/>
+                    </svg>
+                    Сроки изготовления?
+                </summary>
+                <div class="faq__answer">
+                    <p>От 2-х месяцев.</p>
+                </div>
+            </details>
+            <details class="faq__item">
+                <summary class="faq__question">
+                    <svg class="faq__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2l10 6.5v7L12 22 2 15.5v-7L12 2zM12 2v20M2 8.5l10 6.5 10-6.5"/>
+                    </svg>
+                    Возможна ли рассрочка?
+                </summary>
+                <div class="faq__answer">
+                    <p>Возможна на срок строительства катера.</p>
+                </div>
+            </details>
+            <details class="faq__item">
+                <summary class="faq__question">
+                    <svg class="faq__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2l10 6.5v7L12 22 2 15.5v-7L12 2zM12 2v20M2 8.5l10 6.5 10-6.5"/>
+                    </svg>
+                    Для каких регионов подходит ваш катер?
+                </summary>
+                <div class="faq__answer">
+                    <p>Обводы корпуса позволяют эксплуатировать катер и в море даже при волне до 2 м. А также удаленность от берега до 12 миль (22 км). При необходимости вы можете швартоваться носом в берег на любом грунте. И осадка позволяет заходить в реки глубиной 50 см.</p>
+                </div>
+            </details>
+            <details class="faq__item">
+                <summary class="faq__question">
+                    <svg class="faq__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2l10 6.5v7L12 22 2 15.5v-7L12 2zM12 2v20M2 8.5l10 6.5 10-6.5"/>
+                    </svg>
+                    Чем композитный корпус отличается от алюминиевого?
+                </summary>
+                <div class="faq__answer">
+                    <p>Композитный материал позволяет создавать различные формы корпуса. Они прочнее алюминиевого. Не подвержен коррозии. Лучшая тепло- и шумоизоляция. Осуществление быстрого ремонта на местности. Срок службы не менее 20 лет.</p>
+                </div>
+            </details>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- Футер -->
+<footer>
+    <div class="container footer-container">
+        <div class="footer-column animate">
+            <h3>О компании</h3>
+            <p>Производство и продажа качественных лодок и катеров с 2010 года. Мы предлагаем только проверенные решения для вашего комфорта и безопасности на воде.</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-telegram-plane"></i></a>
+            </div>
+        </div>
+        <div class="footer-column animate delay-1">
+            <h3>Контакты</h3>
+            <ul>
+                <li><i class="fas fa-phone-alt"></i> <a href="tel:+71234567890">+7 (909) 587-15-16</a></li>
+                <li><i class="fas fa-envelope"></i> <a href="mailto:info@marine29.ru">sale@vo-lodka.ru</a></li>
+                <li><i class="fas fa-map-marker-alt"></i> Санкт-Петербург, Ломоносовский р-н, д.Разбегаево, промзона Большевик</li>
+                <li><i class="fas fa-clock"></i> Пн-Вскр: 9:00 - 22:00</li>
+            </ul>
+        </div>
+        <div class="footer-column animate delay-2">
+            <h3>Меню</h3>
+            <ul>
+                <li><a href="#features"><i class="fas fa-chevron-right"></i> Особенности</a></li>
+                <li><a href="#gallery"><i class="fas fa-chevron-right"></i> Галерея</a></li>
+                <li><a href="#specs"><i class="fas fa-chevron-right"></i> Характеристики</a></li>
+                <li><a href="#packages"><i class="fas fa-chevron-right"></i> Комплектации</a></li>
+                <li><a href="#contact"><i class="fas fa-chevron-right"></i> Контакты</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="container">
+        <div class="copyright">
+            © 2025 Невская Судоверфь. Все права защищены.
+        </div>
+    </div>
+    <!-- Модальное окно-->
+<div class="modal" id="contactModal">
+    <div class="modal__content">
+        <button class="modal__close" data-modal-close>&times;</button>
+        <h2 class="modal__title">Оставьте заявку</h2>
+        <form class="modal__form">
+            <div class="modal__form-group">
+                <label for="modalName" class="modal__label">Имя</label>
+                <input type="text" id="modalName" class="modal__input" placeholder="Ваше имя" required>
+            </div>
+            <div class="modal__form-group">
+                <label for="modalPhone" class="modal__label">Телефон</label>
+                <input type="tel" id="modalPhone" class="modal__input" placeholder="+7 (___) ___-__-__" required autocomplete="off">
+            </div>
+            <button type="submit" class="modal__submit">Отправить</button>
+        </form>
+    </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/cleave.js/1.6.0/cleave.min.js"></script>
+<script src="js/index.js"></script>
+
+<!-- Закрывающие теги -->
+</body>
+</html>
+
+   
