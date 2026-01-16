@@ -1,212 +1,239 @@
+window.addEventListener('DOMContentLoaded', () => {
 
-// Мобильное меню
-const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-const nav = document.querySelector('nav');
-
-mobileMenuBtn.addEventListener('click', () => {
-    nav.classList.toggle('active');
-    mobileMenuBtn.innerHTML = nav.classList.contains('active') ?
-        '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+     let modalCleave;
+    let countdownCleave;
+      // Применяем маску Cleave.js к полю телефона в countdownForm
+ document.querySelectorAll('#countdownPhone, #creditPhone, #calcPhone, #testPhone').forEach(input => {
+  new Cleave(input, {
+    prefix: '+7',
+    delimiters: [' (', ') ', '-'],
+    blocks: [2, 3, 3, 2, 2],
+    numericOnly: true
+  });
 });
+    // Modal
+    function bindModal(openBtnSelector, modalSelector, closeBtnSelector, closeClickOverlay = true) {
+        const openBtns = document.querySelectorAll(openBtnSelector);
+        const modal = document.querySelector(modalSelector);
+        const closeBtn = document.querySelectorAll(closeBtnSelector);
 
-// Слайдер
-// Слайдер
-document.addEventListener('DOMContentLoaded', () => {
-    const SLIDE_WIDTH = 300; // Фиксированная ширина слайда
-    const CLONES_COUNT = 4; // Количество клонов в начале и конце
-
-    function initSlider(slider) {
-        if (slider.dataset.initialized === 'true') return; // Проверка на повторную инициализацию
-
-        const sliderTrack = slider.querySelector('.slider'); // Один трек на слайдер
-        const prevBtn = slider.querySelector('.slider-prev'); // Одна кнопка "назад"
-        const nextBtn = slider.querySelector('.slider-next'); // Одна кнопка "вперёд"
-        const slides = slider.querySelectorAll('.slider-slide:not(.clone)');
-        const slideCount = slides.length;
-        let currentIndex = 0;
-        let isTransitioning = false;
-
-        // Создаём уникальное модальное окно для каждого слайдера
-        const modal = document.createElement('div');
-        modal.classList.add('slider-modal');
-        const modalImg = document.createElement('img');
-        const modalClose = document.createElement('div');
-        modalClose.classList.add('slider-modal-close');
-        modalClose.innerHTML = '×';
-        modal.appendChild(modalImg);
-        modal.appendChild(modalClose);
-        slider.appendChild(modal); // Привязываем модалку к конкретному слайдеру
-
-        // Закрытие модального окна
-        modalClose.addEventListener('click', () => {
-            modal.style.display = 'none';
-        });
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && modal.style.display === 'flex') {
-                modal.style.display = 'none';
-            }
-        });
-
-        function setupClones() {
-            sliderTrack.querySelectorAll('.clone').forEach(clone => clone.remove());
-            if (slideCount === 0) return;
-
-            for (let i = 0; i < CLONES_COUNT; i++) {
-                const cloneIndex = (slideCount - 1 - i + slideCount) % slideCount;
-                const clone = slides[cloneIndex].cloneNode(true);
-                clone.classList.add('clone');
-                sliderTrack.insertBefore(clone, sliderTrack.firstChild);
-            }
-
-            for (let i = 0; i < CLONES_COUNT; i++) {
-                const cloneIndex = i % slideCount;
-                const clone = slides[cloneIndex].cloneNode(true);
-                clone.classList.add('clone');
-                sliderTrack.appendChild(clone);
-            }
-        }
-
-        function updateSlider(instant = false) {
-            if (slideCount === 0) return;
-
-            if (currentIndex >= slideCount) {
-                currentIndex = 0;
-                instant = true;
-            } else if (currentIndex < 0) {
-                currentIndex = slideCount - 1;
-                instant = true;
-            }
-
-            const offset = -((currentIndex + CLONES_COUNT) * SLIDE_WIDTH);
-
-            if (isTransitioning) return;
-            isTransitioning = true;
-            slider.classList.add('slider-container--transitioning');
-
-            sliderTrack.style.transition = instant
-                ? 'none'
-                : 'transform 0.5s cubic-bezier(0.645, 0.045, 0.355, 1)';
-            sliderTrack.style.transform = `translateX(${offset}px)`;
-
-            if (instant) {
-                setTimeout(() => {
-                    isTransitioning = false;
-                    slider.classList.remove('slider-container--transitioning');
-                }, 0);
-            }
-        }
-
-        function nextSlide() {
-            if (isTransitioning || slideCount === 0) return;
-            currentIndex++;
-            updateSlider();
-        }
-
-        function prevSlide() {
-            if (isTransitioning || slideCount === 0) return;
-            currentIndex--;
-            updateSlider();
-        }
-
-        function bindSliderEvents() {
-            if (!prevBtn || !nextBtn) {
-                console.error('Slider buttons not found for slider:', slider, { prevBtn, nextBtn });
-                return;
-            }
-
-            prevBtn.addEventListener('click', prevSlide, { passive: true });
-            nextBtn.addEventListener('click', nextSlide, { passive: true });
-
-            sliderTrack.addEventListener('transitionend', () => {
-                isTransitioning = false;
-                slider.classList.remove('slider-container--transitioning');
-            }, { passive: true });
-
-            sliderTrack.addEventListener('click', (e) => {
-                if (e.target.tagName === 'IMG') {
-                    modalImg.src = e.target.src;
-                    modal.style.display = 'flex';
+        openBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                if (e.target) {
+                    e.preventDefault();
                 }
-            }, { passive: true });
-        }
 
-        setupClones();
-        currentIndex = 0;
-        updateSlider(true);
-        bindSliderEvents();
-        slider.dataset.initialized = 'true'; // Отмечаем слайдер как инициализированный
-    }
-
-    // Инициализация всех слайдеров при загрузке
-     const sliders = document.querySelectorAll('.gallery .slider-container, .gallery1 .slider-container');
-    sliders.forEach(slider => {
-        if (slider.classList.contains('active')) {
-            initSlider(slider);
-        }
-    });
-
-    // Обработка переключения вкладок
-    const gallery = document.querySelector('#gallery');
-    if (gallery) {
-        const tabs = gallery.querySelectorAll('.gallery-tabs .tab-btn');
-        const gallerySliders = gallery.querySelectorAll('.slider-container');
-
-        tabs.forEach(tab => {
-            tab.addEventListener('click', () => {
-                // Удаляем класс active у всех табов и слайдеров в секции #gallery
-                tabs.forEach(t => t.classList.remove('active'));
-                gallerySliders.forEach(s => s.classList.remove('active'));
-
-                // Добавляем класс active для текущего таба
-                tab.classList.add('active');
-
-                // Находим соответствующий слайдер
-                const sliderId = tab.dataset.tab + '-slider';
-                const currentSlider = gallery.querySelector(`#${sliderId}`);
-
-                if (currentSlider) {
-                    currentSlider.classList.add('active');
-                    initSlider(currentSlider);
-                }
-            }, { passive: true });
-        });
-    }
-});
-
-// ////Табы характеристики
-document.addEventListener('DOMContentLoaded', () => {
-    const specsSection = document.querySelector('#specs');
-    if (specsSection) {
-        const specTabs = specsSection.querySelectorAll('.spec-tab-btn');
-        const specGalleries = specsSection.querySelectorAll('.specs-gallery');
-
-        if (specTabs.length > 0 && specGalleries.length > 0) {
-            specTabs.forEach(tab => {
-                tab.addEventListener('click', () => {
-                    // Удаляем active у всех табов и галерей
-                    specTabs.forEach(t => t.classList.remove('active'));
-                    specGalleries.forEach(g => g.classList.remove('active'));
-
-                    // Добавляем active только к выбранному табу
-                    tab.classList.add('active');
-
-                    // Находим соответствующую галерею по data-tab
-                    const tabName = tab.dataset.tab;
-                    specGalleries.forEach(gallery => {
-                        if (gallery.dataset.tab === tabName) {
-                            gallery.classList.add('active');
-                        }
-                    });
-                }, { passive: true });
+                modal.classList.add('modal--active');
+                document.body.style.overflow = 'hidden';
+                   setTimeout(() => {
+                if (modalCleave) modalCleave.destroy();
+                modalCleave = new Cleave('#modalPhone', {
+                    prefix: '+7',
+                    delimiters: [' (', ') ', '-'],
+                    blocks: [2, 3, 3, 2, 2],
+                    numericOnly: true
+                });
+            }, 0);
             });
-        }
+        });
+
+        closeBtn.forEach(btn => {
+        btn.addEventListener('click', () => {
+            modal.classList.remove('modal--active');
+            document.body.style.overflow = '';
+            if (modalCleave) {
+            modalCleave.destroy();
+            modalCleave = null;
+            }
+        });
+        });
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal && closeClickOverlay) {
+                modal.classList.remove('modal--active');
+                document.body.style.overflow = '';
+            }
+        });
     }
+
+    bindModal('.btn--red', '.modal', '.modal__close');
+    bindModal('.complects__btn--red', '.modal', '.modal__close');
+    bindModal('.btn--white', '.modal', '.modal__close');
+    bindModal('.complects__btn--white', '.modal', '.modal__close');
+    bindModal('.cars_content_profit_text', '.modal', '.modal__close');
+    bindModal('.cars_content_profit_text2', '.modal', '.modal__close');
+    bindModal(null, '#successModal', '.modal__close');
+
+
+        /////Slider
+const swiper = new Swiper('.complects-swiper', {
+  
+  slidesPerView: 4,              // ← КЛЮЧ: 4 карточки на десктопе
+  spaceBetween: 15,
+  centerMode: false,             // ← КЛЮЧ: НЕ показывать куски соседних слайдов
+  centeredSlides: false,         // ← тоже выключить, если включено
+  loop: false,                   // ← если включён loop — тоже может показывать куски
+  watchOverflow: true,
+               
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+breakpoints: {
+    // Сначала маленькие экраны
+    320: {
+      slidesPerView: 1,
+    },    
+    530: {
+      slidesPerView: 1,
+      
+      spaceBetween: 20
+    },
+    768: {
+      slidesPerView: 2
+    },
+    992: {
+      slidesPerView: 3
+    },
+    1200: {
+      slidesPerView: 4
+    }
+  }
 });
+    
+  
+//  TABS
+// Complectations tabs
+
+  const tabs = (headerSelector, tabSelector, contentSelector, activeClass) => {
+        const header = document.querySelector(headerSelector),
+                tab = document.querySelectorAll(tabSelector),
+            content = document.querySelectorAll(contentSelector);
+
+            function hideTabContent() {
+              content.forEach(item => item.classList.remove(activeClass));
+              tab.forEach(item => item.classList.remove(activeClass));
+            }
+
+            function showTabContent(i = 0) {
+               
+              content[i].classList.add(activeClass);
+              tab[i].classList.add(activeClass);
+            }
+
+            hideTabContent();
+            showTabContent();
+
+            header.addEventListener('click', (e) => {
+                const target = e.target;
+                if (target.classList.contains(tabSelector.replace(/\./, "")) || 
+                target.parentNode.classList.contains(tabSelector.replace(/\./, ""))) {
+                    tab.forEach((item, i) => {
+                        if (target == item || target.parentNode == item)  {
+                            hideTabContent();
+                            showTabContent(i);
+                        } 
+                    });
+                }
+            });
+    }
+  tabs('.complects_tab', '.complects_tab_item', '.complects_models', 'active');
 
 
 
 
-// Таймер
+// Models tabs
+
+  const colorTabs = () => {
+    // Находим все блоки с выбором цвета (если их несколько — T4, T7, T8)
+    const colorBlocks = document.querySelectorAll('.cars_content_img');
+
+    colorBlocks.forEach(block => {
+      const dots = block.querySelectorAll('.cars_content_color_dot');
+      const images = block.querySelectorAll('.cars_content_img_color');
+
+      function showColor(color) {
+        // Скрываем все изображения и снимаем active с точек
+        images.forEach(img => img.classList.remove('active'));
+        dots.forEach(dot => dot.classList.remove('active'));
+
+        // Показываем нужное
+        images.forEach(img => {
+          if (img.dataset.color === color) {
+            img.classList.add('active');
+          }
+        });
+        dots.forEach(dot => {
+          if (dot.dataset.color === color) {
+            dot.classList.add('active');
+          }
+        });
+      }
+
+      // Показываем первый цвет при загрузке
+      const firstDot = dots[0];
+      if (firstDot) {
+        showColor(firstDot.dataset.color);
+      }
+
+      // Клик по точке
+      block.addEventListener('click', (e) => {
+        const dot = e.target.closest('.cars_content_color_dot');
+        if (!dot) return;
+
+        const color = dot.dataset.color;
+        if (color) {
+          showColor(color);
+        }
+      });
+    });
+  };
+
+  colorTabs();
+
+ 
+
+
+
+//  Fancybox gallery
+
+
+  Fancybox.bind("[data-fancybox]", {
+    // Настройки (опционально)
+    Thumbs: {
+      autoStart: true,     // включены
+      type: "classic",     // обычные миниатюры
+      showOnStart: true,
+      // Не обрезаем миниатюры    // миниатюры снизу — выключены
+    },
+    Toolbar: {
+      display: {
+        left: ["infobar"],
+        // middle: [
+        //   "zoomIn",
+        //   "zoomOut",
+        //   "toggle1to1",
+        //   "rotateCCW",
+        //   "rotateCW",
+        //   "flipX",
+        //   "flipY",
+        // ],
+        right: ["slideshow", "thumbs", "close"],
+      },
+    },
+    Images: {
+      zoom: true,
+      Panzoom: {
+        maxScale: 3,
+      },
+    },
+    // Анимация
+    animated: true,
+    // Автостарт слайдшоу — выключен
+    slideshow: { autoStart: false },
+  });
+
+// Timer
 function startCountdown() {
     const timerUnits = document.querySelectorAll('.timer-unit-text');
     let targetDate = getNextMonday();
@@ -214,10 +241,22 @@ function startCountdown() {
     function getNextMonday() {
         const now = new Date();
         const dayOfWeek = now.getDay(); // 0 = воскресенье, 1 = понедельник, ..., 6 = суббота
-        const daysUntilNextMonday = (8 - dayOfWeek) % 7; // Считаем дни до следующего понедельника
+        let daysUntilNextMonday = (8 - dayOfWeek) % 7; // Дни до следующего понедельника
+
+        // Если сегодня понедельник и время уже прошло 00:00, переходим к следующему
+        if (dayOfWeek === 1 && now.getHours() >= 0) {
+            daysUntilNextMonday = 7; // Следующий понедельник
+        }
+
         const nextMonday = new Date(now);
         nextMonday.setDate(now.getDate() + daysUntilNextMonday);
         nextMonday.setHours(0, 0, 0, 0); // Устанавливаем начало дня
+
+        // Если nextMonday уже прошёл (из-за часового пояса), добавляем ещё неделю
+        if (nextMonday <= now) {
+            nextMonday.setDate(nextMonday.getDate() + 7);
+        }
+
         return nextMonday;
     }
 
@@ -238,192 +277,169 @@ function startCountdown() {
         const minutes = Math.floor(diff / 60);
         const seconds = diff % 60;
 
-        timerUnits[0].textContent = days;
-        timerUnits[1].textContent = hours;
-        timerUnits[2].textContent = minutes;
-        timerUnits[3].textContent = seconds;
+        // Убеждаемся, что значения не отрицательные
+        timerUnits[0].textContent = String(Math.max(0, days)).padStart(2, '0');
+        timerUnits[1].textContent = String(Math.max(0, hours)).padStart(2, '0');
+        timerUnits[2].textContent = String(Math.max(0, minutes)).padStart(2, '0');
+        timerUnits[3].textContent = String(Math.max(0, seconds)).padStart(2, '0');
     }
 
     // Обновляем таймер каждую секунду
     const countdown = setInterval(updateCountdown, 1000);
     // Вызываем сразу при загрузке для мгновенного отображения
     updateCountdown();
-}
+}startCountdown();
 
-document.addEventListener('DOMContentLoaded', startCountdown);
+// Отправка форм
+  // Универсальная отправка формы
+  const sendForm = (formSelector, onSuccess = null) => {
+    const form = document.querySelector(formSelector);
+    if (!form) return;
 
-// Модальные окна и отправка формы
-document.addEventListener('DOMContentLoaded', () => {
-    console.log('Скрипт инициализируется...');
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
 
-    const contactModal = document.getElementById('contactModal');
-    const successModal = document.getElementById('successModal');
-    const modalForm = document.getElementById('modalForm');
-    const countdownForm = document.getElementById('countdownForm');
-    const openButtons = document.querySelectorAll('[data-modal-open]');
-    const closeButtons = document.querySelectorAll('[data-modal-close]');
-    let modalCleave;
-    let countdownCleave;
+      // Получаем "чистый" номер телефона
+      let phone = '';
+      const phoneInput = form.querySelector('input[name="phone"]');
+      if (phoneInput) {
+        // Если есть Cleave — берём сырое значение, иначе — чистим вручную
+        const cleave = phoneInput._cleave || null;
+        phone = cleave ? cleave.getRawValue() : phoneInput.value.replace(/\D/g, '');
+      }
 
-    // Проверка, что элементы найдены
-    if (!contactModal || !successModal || !modalForm || !countdownForm) {
-        console.error('Не найдены элементы:', {
-            contactModal,
-            successModal,
-            modalForm,
-            countdownForm
-        });
+      // Валидация: российский номер — 11 цифр (7XXXXXXXXXX)
+      if (phone.length !== 11) {
+        alert('Пожалуйста, введите корректный номер телефона (11 цифр).');
         return;
-    }
+      }
 
-    console.log('countdownForm найден:', countdownForm);
+      const formData = new FormData(form);
 
-    // Функция закрытия модального окна
-    const closeModal = (modal) => {
-        modal.classList.remove('modal--active');
-        document.body.style.overflow = '';
-        if (modalCleave) {
-            modalCleave.destroy();
-            modalCleave = null;
+      try {
+        const response = await fetch('mailer/smart.php', {
+          method: 'POST',
+          body: formData
+        });
+
+        const text = await response.text();
+
+        if (!response.ok) {
+          throw new Error(`Ошибка сервера: ${response.status}`);
         }
-    };
 
-    // Открытие модального окна
-    openButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            contactModal.classList.add('modal--active');
-            document.body.style.overflow = 'hidden';
-
-            // Применяем маску Cleave.js после открытия модального окна
-            setTimeout(() => {
-                if (modalCleave) modalCleave.destroy();
-                modalCleave = new Cleave('#modalPhone', {
-                    prefix: '+7',
-                    delimiters: [' (', ') ', '-'],
-                    blocks: [2, 3, 3, 2, 2],
-                    numericOnly: true
-                });
-            }, 0);
-        });
-    });
-
-    // Закрытие модальных окон
-    closeButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            closeModal(contactModal);
-            closeModal(successModal);
-        });
-    });
-
-    // Закрытие по клику на фон
-    [contactModal, successModal].forEach(modal => {
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) closeModal(modal);
-        });
-    });
-
-    // Закрытие по Esc
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') {
-            closeModal(contactModal);
-            closeModal(successModal);
+        let data;
+        try {
+          data = JSON.parse(text);
+        } catch {
+          throw new Error('Некорректный ответ от сервера');
         }
-    });
 
-    // Применяем маску Cleave.js к полю телефона в countdownForm
-    countdownCleave = new Cleave('#countdownPhone', {
-        prefix: '+7',
-        delimiters: [' (', ') ', '-'],
-        blocks: [2, 3, 3, 2, 2],
-        numericOnly: true
-    });
+        if (data.success) {
+          // Яндекс.Метрика
+          if (typeof ym !== 'undefined') {
+            ym(103340760, 'reachGoal', 'sendform');
+          }
 
-    // Функция отправки формы через AJAX
-    const handleFormSubmit = (form, onSuccess) => {
-        console.log('Добавляем обработчик submit для формы:', form.id);
-        if (!form) {
-            console.error('Форма не найдена:', form);
-            return;
+          // Успех
+          form.reset();
+          if (onSuccess) onSuccess();
+
+          // Показываем модалку успеха (если есть)
+          const successModal = document.getElementById('successModal');
+          if (successModal) {
+            successModal.classList.add('modal--active');
+          }
+        } else {
+          alert(data.message || 'Ошибка отправки формы');
         }
-        form.addEventListener('submit', (e) => {
-            console.log('Событие submit сработало для формы:', form.id);
-            e.preventDefault();
+      } catch (error) {
+        console.error('Ошибка отправки:', error);
+        alert('Произошла ошибка при отправке. Попробуйте позже.');
+      }
+    });
+  };
 
-            const formData = new FormData(form);
-            console.log('Form data:', Object.fromEntries(formData));
+  // Применяем ко всем формам
+  sendForm('#modalForm', () => {
+    const modal = document.getElementById('contactModal');
+    if (modal) modal.classList.remove('modal--active');
+  });
 
-            fetch('mailer/smart.php', {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => {
-                console.log('Response status:', response.status);
-                if (!response.ok) {
-                    throw new Error(`HTTP error! Status: ${response.status}`);
-                }
-                return response.text(); // Сначала получаем текст ответа
-            })
-            .then(text => {
-                console.log('Raw response text:', text);
-                // Пробуем распарсить как JSON
-                try {
-                    const data = JSON.parse(text);
-                    console.log('Parsed response data:', data);
-                    if (data.success) {
-                        if (onSuccess) onSuccess();
-                        successModal.classList.add('modal--active');
-                        form.reset();
-                        if (countdownCleave) countdownCleave.setRawValue('');
-                    } else {
-                        console.error('Ошибка отправки:', data.message);
-                    }
-                } catch (jsonError) {
-                    console.error('Ошибка парсинга JSON:', jsonError, 'Raw text:', text);
-                    throw new Error('Response is not valid JSON');
-                }
-            })
-            .catch(error => {
-                console.error('Ошибка при отправке формы:', error);
-            });
-        });
-    };
+  sendForm('#countdownForm'); // если есть такая форма
 
-    // Обработка отправки формы из модального окна
-    handleFormSubmit(modalForm, () => closeModal(contactModal));
 
-    // Обработка отправки формы countdownForm
-    handleFormSubmit(countdownForm);
+
+
+  // Инициализация полузнков
+
+
+ 
+  const downpaymentRange = document.getElementById('downpayment');
+  const downpaymentValue = document.getElementById('downpayment-value');
+
+  
+  const termRange = document.getElementById('term');
+  const termValue = document.getElementById('term-value');
+
+  
+  downpaymentRange.addEventListener('input', () => {
+    downpaymentValue.textContent = downpaymentRange.value + '%';
+  });
+
+  termRange.addEventListener('input', () => {
+    termValue.textContent = termRange.value + ' мес.';
+  });
+
+ 
+  downpaymentValue.textContent = downpaymentRange.value + '%';
+  termValue.textContent = termRange.value + ' мес.';
+
+
+  // Cookie Notice
+
+
+
+  const notice = document.getElementById('cookie-notice');
+  const acceptBtn = document.getElementById('cookie-accept');
+
+  // Ключ в localStorage (срок жизни — 365 дней)
+  const COOKIE_KEY = 'cookie_accepted';
+  const ONE_YEAR = 365 * 24 * 60 * 60 * 1000; 
+
+  
+  const accepted = localStorage.getItem(COOKIE_KEY);
+  const now = Date.now();
+
+
+  if (!accepted || now - parseInt(accepted) > ONE_YEAR) {
+    setTimeout(() => {
+      notice.classList.add('show');
+    }, 2000); 
+  }
+
+ 
+  acceptBtn.addEventListener('click', () => {
+    // Сохраняем согласие с текущей датой
+    localStorage.setItem(COOKIE_KEY, Date.now().toString());
+
+   
+    notice.style.opacity = '0';
+    notice.style.transform = 'translateY(100%)';
+    setTimeout(() => notice.remove(), 500); 
+  });
 });
 
-// Инициализация FAQ
-function initFAQ() {
-    const faqList = document.querySelector('.faq__list');
-    if (!faqList) return;
 
-    faqList.addEventListener('click', handleFAQInteraction);
-    faqList.addEventListener('keydown', handleFAQInteraction);
 
-    function handleFAQInteraction(e) {
-        const summary = e.target.closest('.faq__question');
-        if (!summary) return;
 
-        const currentDetails = summary.parentElement;
-        const allDetails = faqList.querySelectorAll('details');
 
-        const isClick = e.type === 'click';
-        const isEnterOrSpace = e.type === 'keydown' && (e.key === 'Enter' || e.key === ' ');
-        if (!isClick && !isEnterOrSpace) return;
 
-        e.preventDefault();
 
-        if (currentDetails.hasAttribute('open')) {
-            currentDetails.removeAttribute('open');
-            return;
-        }
 
-        allDetails.forEach(details => details.removeAttribute('open'));
-        currentDetails.setAttribute('open', '');
-    }
-}
 
-initFAQ();
+
+
+
+
+
