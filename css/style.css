@@ -534,11 +534,19 @@ h1 {
     gap: 12px;
   }
   .timer-item {
-    min-width: 40px;
+    min-width: 65px;
     padding: 12px 8px;
   }
   .timer-unit {
     font-size: 32px;
+  }
+  .timer-label {
+    font-size: 10px;
+  }
+}
+@media (max-width: 320px) {
+  .countdown-form__timer, .countdown-form__title {
+    display: none;
   }
 }
 

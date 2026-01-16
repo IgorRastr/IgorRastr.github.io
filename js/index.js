@@ -3,7 +3,7 @@ window.addEventListener('DOMContentLoaded', () => {
      let modalCleave;
     let countdownCleave;
       // Применяем маску Cleave.js к полю телефона в countdownForm
- document.querySelectorAll('#countdownPhone, #creditPhone, #calcPhone, #testPhone').forEach(input => {
+ document.querySelectorAll('#countdownPhone, #creditPhone, #calcPhone, #testPhone,#carPrice').forEach(input => {
   new Cleave(input, {
     prefix: '+7',
     delimiters: [' (', ') ', '-'],
@@ -56,7 +56,7 @@ window.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    bindModal('.btn--red', '.modal', '.modal__close');
+    bindModal('[data-modal-open]', '.modal', '.modal__close');
     bindModal('.complects__btn--red', '.modal', '.modal__close');
     bindModal('.btn--white', '.modal', '.modal__close');
     bindModal('.complects__btn--white', '.modal', '.modal__close');
@@ -367,8 +367,10 @@ function startCountdown() {
   });
 
   sendForm('#countdownForm'); // если есть такая форма
-
-
+  sendForm('#creditForm'); 
+  sendForm('#TRADEINForm'); 
+  sendForm('#testdriveForm'); 
+   sendForm('#calcForm'); 
 
 
   // Инициализация полузнков
