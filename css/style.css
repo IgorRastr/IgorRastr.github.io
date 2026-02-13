@@ -170,11 +170,11 @@ a {
 
 .main_title {
     margin-top: 50px;
-    background: rgba(255, 255, 255, 0.7); /* полупрозрачный белый: (R, G, B, alpha) */
-    padding: 40px 60px; /* внутренние отступы для удобства */
-    border-radius: 8px; /* скругленные углы (опционально) */
-    /* max-width: 600px;  */
-    backdrop-filter: blur(40px); /* размытие фона позади (опционально, только современные браузеры) */
+    background: rgba(255, 255, 255, 0.7); 
+    padding: 40px 60px; 
+    border-radius: 8px; 
+   
+    backdrop-filter: blur(40px); 
 }
 
 h1 {
@@ -254,7 +254,7 @@ h1 {
 
 .ticker__inner {
   display: flex;
-  gap: 32px;                                    /* расстояние между блоками */
+  gap: 32px;                                    
   animation: ticker-scroll 40s linear infinite;
   will-change: transform;
 }
@@ -262,8 +262,8 @@ h1 {
 .ticker__item {
   flex-shrink: 0;
   display: flex;
-  align-items: center;         /* ← главная магия: вертикальное центрирование */
-  gap: 32px;                   /* расстояние между текстом и точкой */
+  align-items: center;         
+  gap: 32px;                   
   white-space: nowrap;
 }
 /* Текст */
@@ -271,19 +271,19 @@ h1 {
   font-family: 'Inter', sans-serif;
   font-weight: 500;
   font-size: 22.9px;
-  /* line-height: 41px; */
+ 
   color: #FFFFFF;
   
 }
 
-/* Точка — идеально по центру строки */
+
 .ticker__dot {
   width: 10px;
   height: 10px;
   background: #FFFFFF;
   border-radius: 50%;
   flex-shrink: 0;
-  /* Дополнительная подстраховка на случай неидеального line-height */
+  
   align-self: center;
 }
 
@@ -312,66 +312,7 @@ h1 {
     gap: 15px;
 }
 
-/* .countdown-form__title {
-    margin-bottom: 20px;
-    text-transform: uppercase;
-    text-align: center;
-    font-family: 'Inter', sans-serif;
-    font-weight: 400;
-    font-size: 17.4px;
-    color: #292929;
-    white-space: nowrap;          
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
 
-.countdown-form__timer {
-    display: flex;
-    gap: 15px;
-    
-    justify-content: center;
-}
-
-.timer-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 5px;
-    
-}
-
-.timer-unit {
-
-    position: relative;
-    font-family: 'Roboto';
-    font-style: normal;
-    font-weight: 700;
-    font-size:40px;
-    line-height: 40px;
-    color: #000000;
-
-
-}
-
-.timer-unit::after {
-    content: ':';
-    position: absolute;
-    right: -18px;
-    top: 0;
-    font-size: 35px;
-    color: #000000;
-}
-
-.timer-item:last-child .timer-unit::after {
-    content: '';
-}
-
-.timer-label {
-    font-size: 14px;
-    color: #000000;
-    text-transform: uppercase;
-    
-} */
 .countdown-form__title {
     margin-bottom: 20px;
     text-transform: uppercase;
@@ -417,22 +358,12 @@ h1 {
   position: relative;
 }
 
-/* Убираем двоеточие через псевдоэлемент */
+
 .timer-unit::after {
   content: '';
 }
 
-/* Двоеточие между блоками */
-/* .timer-item:not(:last-child)::after {
-  content: ':';
-  position: absolute;
-  right: -12px;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 40px;
-  font-weight: 900;
-  color: #AE040F;
-} */
+
 
 .timer-label {
   font-size: 12px;
@@ -454,7 +385,7 @@ h1 {
 } 
 
 .countdown-form__form-input-wrapper {
-    max-width: 100%;          /* добавь эту строку — и всё влезет */
+    max-width: 100%;          
     display: flex;
     gap: 15px;
 }
@@ -503,16 +434,7 @@ h1 {
     cursor: pointer;
 }
 
-/* @media (max-width: 992px) {
- .countdown-form__form-input-wrapper {
-    justify-content: space-between;
- }
 
-  .form-input,
-  .form-button {
-    width: 45%;
-  }
-} */
 
 @media (max-width: 992px) {
   .countdown-form__content {
@@ -553,7 +475,7 @@ h1 {
 /* Cars */
 .cars {
     margin-top: 100px;
-    /* margin-bottom: 94px; */
+    
 }
 .cars_menu {
     display: flex;
@@ -570,68 +492,22 @@ h1 {
 }
 
 
-/* a.cars_menu_item {
-    text-decoration: none;
-    color: inherit;
-}
 
-a.cars_menu_item:hover,
-a.cars_menu_item:focus {
-    text-decoration: none;
-    color: inherit;
-}
-
-.cars_menu_item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    position: relative;
-   
-    
-}
-
- .cars_menu_item {
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-
-.cars_menu_item:hover,
-.cars_menu_item:focus {
-    transform: scale(1.08);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-    z-index: 10;
-}
-
-.cars_menu_img {
-    width: 160px;
-    height: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 16px;
-}
-
-.cars_menu_img img {
-    width: 140px;        
-    height: auto;        
-    max-height: 80px;    
-    display: block;
-} */
 
 .cars_menu {
   display: flex;
   justify-content: center;
-  gap: 40px;                     /* больше пространства между моделями */
+  gap: 40px;                     
   padding: 40px 20px;
   margin: 0 auto;
-  /* flex-wrap: wrap;                */
+  
 }
 
 .cars_menu > div {
-  flex: 0 1 200px;               /* адаптивная ширина */
+  flex: 0 1 200px;              
 }
 
-/* Ссылка — без подчёркивания */
+
 a.cars_menu_item {
   text-decoration: none;
   color: inherit;
@@ -649,12 +525,12 @@ a.cars_menu_item {
   border-radius: 16px;
   background: #FFFFFF;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* эластичная анимация */
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
   position: relative;
   overflow: hidden;
 }
 
-/* Фоновая подсветка при ховере */
+
 .cars_menu_item::before {
   content: '';
   position: absolute;
@@ -670,14 +546,14 @@ a.cars_menu_item {
   opacity: 1;
 }
 
-/* Основной hover */
+
 .cars_menu_item:hover {
-  transform: translateY(-12px) scale(1.05);   /* подъём + лёгкое увеличение */
-  box-shadow: 0 20px 50px rgba(174, 4, 15, 0.2); /* красноватая тень */
+  transform: translateY(-12px) scale(1.05);   
+  box-shadow: 0 20px 50px rgba(174, 4, 15, 0.2); 
   z-index: 10;
 }
 
-/* Картинка машины */
+
 .cars_menu_img {
   width: 180px;
   height: 110px;
@@ -699,9 +575,9 @@ a.cars_menu_item {
   transition: transform 0.5s ease;
 }
 
-/* Анимация машины при ховере */
+
 .cars_menu_item:hover .cars_menu_img img {
-  transform: scale(1.1) translateY(-4px);   /* машина "выезжает" вверх */
+  transform: scale(1.1) translateY(-4px);   
 }
 
 
@@ -787,32 +663,7 @@ a.cars_menu_item {
     display: flex;
     justify-content: space-between;
 }
-/* .cars_content_profit_money {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    background: linear-gradient(270deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 100%);
-    border-radius: 50px 0px 0px 50px;
-    max-width: 300px;
-  
-}
-.cars_content_profit_text {
 
-
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 18.9px;
-    line-height: 26px;
-    cursor: pointer;
-
-    color: #292929;
-
-
-}
-.cars_content_profit_text:hover {
-    color: #AE040F;
-} */
 
 .cars_content_profit_money {
   display: flex;
@@ -827,14 +678,14 @@ a.cars_menu_item {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
 }
 
-/* Hover для всего блока */
+
 .cars_content_profit_money:hover {
-  transform: translateY(-4px);               /* подъём */
-  background: linear-gradient(270deg, rgba(174, 4, 15, 0.05) 0%, #FFFFFF 100%); /* лёгкий красный оттенок */
-  box-shadow: 0 12px 30px rgba(174, 4, 15, 0.2); /* красноватая тень */
+  transform: translateY(-4px);              
+  background: linear-gradient(270deg, rgba(174, 4, 15, 0.05) 0%, #FFFFFF 100%); 
+  box-shadow: 0 12px 30px rgba(174, 4, 15, 0.2); 
 }
 
-/* Иконка денег — "вспыхивает" */
+
 .cars_content_profit_money img {
   width: 32px;
   height: 32px;
@@ -843,11 +694,11 @@ a.cars_menu_item {
 }
 
 .cars_content_profit_money:hover img {
-  transform: scale(1.15) rotate(8deg);       /* лёгкий поворот и увеличение */
-  filter: brightness(1.1) drop-shadow(0 0 12px rgba(174, 4, 15, 0.4)); /* красное свечение */
+  transform: scale(1.15) rotate(8deg);       
+  filter: brightness(1.1) drop-shadow(0 0 12px rgba(174, 4, 15, 0.4)); 
 }
 
-/* Текст */
+
 .cars_content_profit_text {
   font-family: 'Inter';
   font-weight: 700;
@@ -858,7 +709,7 @@ a.cars_menu_item {
   position: relative;
 }
 
-/* Hover текст — красный + подчёркивание */
+
 .cars_content_profit_money:hover .cars_content_profit_text {
   color: #AE040F;
 }
@@ -879,45 +730,25 @@ a.cars_menu_item {
   width: 100%;
 }
 
-/* .cars_content_profit_price  {
-    display: flex;
-    align-items: center;
-    gap: 10px;
 
-}
-
-.cars_content_profit_text2 {
-
-
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 20px;
-    line-height: 26px;
-    text-transform: uppercase;
-    color: #AE040F;
-    cursor: pointer;
-
-
-} */
 
 .cars_content_profit_price {
   display: flex;
   align-items: center;
   gap: 10px;
-  cursor: pointer;                    /* рука при наведении */
+  cursor: pointer;                    
   transition: all 0.3s ease;
-  padding: 8px 12px;                  /* небольшой отступ для эффекта */
+  padding: 8px 12px;                  
   border-radius: 8px;
 }
 
 .cars_content_profit_price:hover {
-  transform: translateY(-4px);        /* подъём, как у кнопок */
-  box-shadow: 0 10px 25px rgba(174, 4, 15, 0.25);   /* красная тень */
-  background: rgba(174, 4, 15, 0.08); /* лёгкий красный бэкграунд */
+  transform: translateY(-4px);        
+  box-shadow: 0 10px 25px rgba(174, 4, 15, 0.25);   
+  background: rgba(174, 4, 15, 0.08); 
 }
 
-/* Иконка огня — анимируем */
+
 .cars_content_profit_price img {
   width: 28px;
   height: 28px;
@@ -925,11 +756,11 @@ a.cars_menu_item {
 }
 
 .cars_content_profit_price:hover img {
-  transform: scale(1.2) rotate(10deg); /* огонь "вспыхивает" */
+  transform: scale(1.2) rotate(10deg); 
   filter: brightness(1.1) drop-shadow(0 0 8px #AE040F);
 }
 
-/* Текст — усиливаем акцент */
+
 .cars_content_profit_text2 {
   font-family: 'Inter';
   font-weight: 700;
@@ -954,11 +785,11 @@ a.cars_menu_item {
 }
 
 .cars_content_profit_price:hover .cars_content_profit_text2 {
-  color: #950309;                     /* чуть темнее красный */
+  color: #950309;                    
 }
 
 .cars_content_profit_price:hover .cars_content_profit_text2::after {
-  width: 100%;                        /* подчёркивание выезжает */
+  width: 100%;                       
 }
 
 .cars_content_img_color.active {
@@ -984,24 +815,24 @@ a.cars_menu_item {
     height: 28px;
     border-radius: 50%;
     cursor: pointer;
-    transition: all 0.3s ease;   /* плавная анимация */
+    transition: all 0.3s ease;   
     opacity: 0.8;
     border: 3px solid #FFFFFF;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);  /* для ровного увеличения */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);  
     box-sizing: border-box;
 }
-/* При наведении */
+
 .cars_content_color_dot:hover {
   opacity: 1;
   transform: scale(1.2);
-  box-shadow: 0 0 12px rgba(174, 4, 15, 0.5);   /* лёгкое свечение красным */
+  box-shadow: 0 0 12px rgba(174, 4, 15, 0.5);   
 }
 
-/* Активная точка */
+
 .cars_content_color_dot.active {
   opacity: 1;
-  transform: scale(1.4);       /* чуть больше, чем при ховере */
-  border: 2px solid #AE040F;   /* красная обводка */
+  transform: scale(1.4);      
+  border: 2px solid #AE040F;   
   box-shadow: 0 0 15px rgba(174, 4, 15, 0.6);
 }
 
@@ -1072,7 +903,7 @@ a.cars_menu_item {
 
 .cars_content_bonus_btns {
   display: grid;
-  grid-template-columns: 1fr 1fr;     /* две по 50% */
+  grid-template-columns: 1fr 1fr;     
   gap: 8px 12px;
   max-width: 570px;
   margin: 0 auto;
@@ -1233,7 +1064,7 @@ a.cars_menu_item {
 .swiper-button-next {
   width: 56px;
   height: 56px;
-  background: rgba(174, 4, 15, 0.7);     /* полупрозрачный красный */
+  background: rgba(174, 4, 15, 0.7);   
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -1248,13 +1079,13 @@ a.cars_menu_item {
 
 .swiper-button-prev:hover,
 .swiper-button-next:hover {
-  background: #AE040F;                   /* яркий красный */
+  background: #AE040F;                   
   transform: translateY(-3px);
   box-shadow: 0 12px 30px rgba(174, 4, 15, 0.5);
   opacity: 1;
 }
 
-/* Цвет стрелки */
+
 .swiper-button-prev svg,
 .swiper-button-next svg {
   width: 28px;
@@ -1262,7 +1093,7 @@ a.cars_menu_item {
   color: #fff;
 }
 
-/* Позиционирование */
+
 .swiper-button-prev {
   left: 20px;
 }
@@ -1271,7 +1102,7 @@ a.cars_menu_item {
   right: 20px;
 }
 
-/* На мобильных — чуть меньше */
+
 @media (max-width: 768px) {
   .swiper-button-prev,
   .swiper-button-next {
@@ -1293,7 +1124,7 @@ a.cars_menu_item {
   /* max-width: 270px; */
   /* flex: 0 0 250px;  */
   border: 1px solid #E0E0E0;
-    background: #FFFFFF;        /* ← ВОТ ОН */
+    background: #FFFFFF;        
     border-radius: 8px;
     overflow: hidden;
     display: flex;
@@ -1483,29 +1314,29 @@ a.cars_menu_item {
     width: 100%;
     height: 600px;
     flex-direction: column;
-    /* margin-top: -80px;           ← ВЫНОС ВВЕРХ */
+    /* margin-top: -80px;         
     /* gap: 20px; */
     padding: 0 20px;
     /* z-index: 3; */
   }
 
-  /* === КАРТИНКА — ВВЕРХУ, НЕ ОБРЕЗАЕТСЯ === */
+ 
   .credit_block_img {
     flex: 1;
     height: 100%;
     width: 100%;
-    /* order: -1;                   ← ВВЕРХ */
+   
   }
 
   .credit_block_img img {
     width: 100%;
     height: auto;
     
-    object-fit: contain;       /* ← ВАЖНО */
+    object-fit: contain;       
     
   }
 
-  /* === ФОРМА — ПРИЖАТА К ВЕРХУ === */
+  
   .credit_block_form {
     width: 100%;
     height: 40%;
@@ -1514,7 +1345,7 @@ a.cars_menu_item {
     padding: 20px 30px;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start; /* ← К ВЕРХУ */
+    justify-content: flex-start; 
     gap: 16px;
     margin-bottom: 0;
     
@@ -1538,7 +1369,7 @@ a.cars_menu_item {
 
 .credit_calculator {
     position: relative;
-    height: 600px;                    /* ← ОБЯЗАТЕЛЬНО */
+    height: 600px;                   
     background: #f8f8f8;
     overflow: hidden;
     margin-bottom: 200px;
@@ -1548,8 +1379,8 @@ a.cars_menu_item {
     /* position: relative; */
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px 0 60px;           /* отступ слева от изображения */
-    height: 100%;                     /* ← ПО ВЫСОТЕ РОДИТЕЛЯ */
+    padding: 0 20px 0 60px;          
+    height: 100%;                     
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -1563,9 +1394,8 @@ a.cars_menu_item {
     top: 50%;
     transform: translateY(-50%);
     width: 50%;
-      /* ширина слева + отступ */
-    /* max-width: 1000px; */
-    height: 100%;                     /* ← ПО ВЫСОТЕ РОДИТЕЛЯ */
+  
+    height: 100%;                     
     /* z-index: 1; */
     display: flex;
     align-items: center;
@@ -1596,7 +1426,7 @@ a.cars_menu_item {
     justify-content: center; */
     width: 400px;
   height: auto;
-  max-height: 100%;                 /* ← НЕ ВЫШЕ РОДИТЕЛЯ */
+  max-height: 100%;              
   background: #fff;
   padding: 32px;
   border-radius: 16px;
@@ -1648,6 +1478,7 @@ a.cars_menu_item {
   font-size: 16px;
   color: #333;
   background: #fff;
+  -webkit-appearance: none;
   appearance: none;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23666' d='M0 0l6 8 6-8z'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
@@ -1682,6 +1513,7 @@ a.cars_menu_item {
 /* Стили для range */
 .range-input {
   -webkit-appearance: none;
+  appearance: none;
   width: 100%;
   height: 6px;
   background: #e0e0e0;
@@ -1725,7 +1557,7 @@ a.cars_menu_item {
 }
 
 .credit_calc_form_item {
-  width: 100%;     /* ← КЛЮЧ */
+  width: 100%;     
 }
 
 .credit_calc_form .form-input {
@@ -1762,7 +1594,7 @@ a.cars_menu_item {
   .credit_calc_block_img img {
     width: 100%;
     height: auto;
-    object-fit: contain;       /* ← ВАЖНО */
+    object-fit: contain;      
   }
   .credit_calc {
     width: 100%;
@@ -1776,14 +1608,14 @@ a.cars_menu_item {
 /* TradeIn */
 .tradein {
     position: relative;
-    height: 600px;                    /* ← ОБЯЗАТЕЛЬНО */
+    height: 600px;                   
     background: #f8f8f8;
     overflow: hidden;
     height: 600px; 
     margin-bottom: 85px;
 }
 
-/* содержимое слева — занимает половину блока */
+
 .tradein .container {
   /* position: absolute;
   left: 0; */
@@ -1794,7 +1626,7 @@ a.cars_menu_item {
   display: flex;
   align-items: center;
   justify-content: left;
-  z-index: 3;              /* поверх фоновой картинки */
+  z-index: 3;              
   box-sizing: border-box;
   min-width: 0;
 }
@@ -1802,7 +1634,7 @@ a.cars_menu_item {
 .tradein .credit_calc {
   width: 400px;
   height: 100%;
-  max-height: 100%;                 /* ← НЕ ВЫШЕ РОДИТЕЛЯ */
+  max-height: 100%;                 
   /* background: #fff; */
   /* padding: 32px; */
   display: flex;
@@ -1838,7 +1670,7 @@ a.cars_menu_item {
 
 }
 
-/* картинка справа — абсолютна и занимает правую половину */
+
 .tradein .credit_calc_block_img {
   position: absolute;
   right: 0;
@@ -1890,7 +1722,7 @@ a.cars_menu_item {
   .tradein .credit_calc_block_img img {
     width: 100%;
     height: auto;
-    object-fit: contain;       /* ← ВАЖНО */
+    object-fit: contain;      
   }
   .tradein .credit_calc {
     width: 100%;
@@ -1928,7 +1760,7 @@ a.cars_menu_item {
   padding: 0 20px;
   box-sizing: border-box;
   align-items: stretch;
-  min-height: 140px;     /* ← не ниже */
+  min-height: 140px;     
   height: auto;
 }
 
@@ -1946,7 +1778,7 @@ a.cars_menu_item {
   line-height: 1;
   color: #333;
   transition: all 0.3s ease;
-  min-height: 98px;     /* ← не ниже */
+  min-height: 98px;     
   height: auto;
 }
 
@@ -1980,8 +1812,8 @@ a.cars_menu_item {
 .contacts {
   display: flex;
   width: 100%;
-  height: 600px;              /* ← на десктопе */
-  max-height: 600px;          /* ← ОБЯЗАТЕЛЬНО */
+  height: 600px;              
+  max-height: 600px;          
   background: #1a1a1a;
   color: #fff;
   font-family: 'Inter', sans-serif;
@@ -1990,8 +1822,8 @@ a.cars_menu_item {
 /* === КАРТА И КОНТАКТЫ — РАВНАЯ ВЫСОТА === */
 .contacts_map,
 .contacts_info {
-  flex: 1;                     /* ← 50% ширины */
-  height: 100%;                /* ← ПО ВСЕЙ ВЫСОТЕ РОДИТЕЛЯ */
+  flex: 1;                    
+  height: 100%;               
   position: relative;
 }
 
@@ -2016,7 +1848,7 @@ a.cars_menu_item {
   max-width: 80%;
 }
 
-/* === КОНТАКТЫ — 50% === */
+
 .contacts_info {
   flex: 1;
   padding: 60px 40px;
@@ -2033,7 +1865,7 @@ a.cars_menu_item {
   color: #fff;
 }
 
-/* === СТРОКА КОНТАКТА === */
+
 .contact_item {
   display: flex;
   align-items: flex-start;

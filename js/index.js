@@ -1,16 +1,55 @@
 window.addEventListener('DOMContentLoaded', () => {
 
+    // Автоматическая установка даты на следующий понедельник
+    function getNextMonday() {
+        const today = new Date();
+        const dayOfWeek = today.getDay(); 
+        
+        
+        let daysUntilMonday;
+        if (dayOfWeek === 1) {
+            
+            daysUntilMonday = 7;
+        } else if (dayOfWeek === 0) {
+            
+            daysUntilMonday = 1;
+        } else {
+            
+            daysUntilMonday = 8 - dayOfWeek;
+        }
+        
+        const nextMonday = new Date(today);
+        nextMonday.setDate(today.getDate() + daysUntilMonday);
+        
+        const day = String(nextMonday.getDate()).padStart(2, '0');
+        const month = String(nextMonday.getMonth() + 1).padStart(2, '0');
+        return `${day}.${month}`;
+    }
+
+    // Устанавливаем дату дедлайна
+    const deadlineElement = document.getElementById('deadline-date');
+    if (deadlineElement) {
+        deadlineElement.textContent = getNextMonday();
+    }
+
+
+
+
+
      let modalCleave;
     let countdownCleave;
       // Применяем маску Cleave.js к полю телефона в countdownForm
- document.querySelectorAll('#countdownPhone, #creditPhone, #calcPhone, #testPhone,#carPrice').forEach(input => {
-  new Cleave(input, {
-    prefix: '+7',
-    delimiters: [' (', ') ', '-'],
-    blocks: [2, 3, 3, 2, 2],
-    numericOnly: true
-  });
-});
+        document.querySelectorAll('#countdownPhone, #creditPhone, #calcPhone, #testPhone,#carPrice').forEach(input => {
+          new Cleave(input, {
+            prefix: '+7',
+            delimiters: [' (', ') ', '-'],
+            blocks: [2, 3, 3, 2, 2],
+            numericOnly: true
+          });
+        });
+
+
+
     // Modal
     function bindModal(openBtnSelector, modalSelector, closeBtnSelector, closeClickOverlay = true) {
         const openBtns = document.querySelectorAll(openBtnSelector);
@@ -68,11 +107,11 @@ window.addEventListener('DOMContentLoaded', () => {
         /////Slider
 const swiper = new Swiper('.complects-swiper', {
   
-  slidesPerView: 4,              // ← КЛЮЧ: 4 карточки на десктопе
+  slidesPerView: 4,             
   spaceBetween: 15,
-  centerMode: false,             // ← КЛЮЧ: НЕ показывать куски соседних слайдов
-  centeredSlides: false,         // ← тоже выключить, если включено
-  loop: false,                   // ← если включён loop — тоже может показывать куски
+  centerMode: false,             
+  centeredSlides: false,         
+  loop: false,                   
   watchOverflow: true,
                
   navigation: {
@@ -80,7 +119,7 @@ const swiper = new Swiper('.complects-swiper', {
     prevEl: '.swiper-button-prev',
   },
 breakpoints: {
-    // Сначала маленькие экраны
+   
     320: {
       slidesPerView: 1,
     },    
@@ -145,7 +184,7 @@ breakpoints: {
 // Models tabs
 
   const colorTabs = () => {
-    // Находим все блоки с выбором цвета (если их несколько — T4, T7, T8)
+    
     const colorBlocks = document.querySelectorAll('.cars_content_img');
 
     colorBlocks.forEach(block => {
@@ -153,11 +192,11 @@ breakpoints: {
       const images = block.querySelectorAll('.cars_content_img_color');
 
       function showColor(color) {
-        // Скрываем все изображения и снимаем active с точек
+        
         images.forEach(img => img.classList.remove('active'));
         dots.forEach(dot => dot.classList.remove('active'));
 
-        // Показываем нужное
+        
         images.forEach(img => {
           if (img.dataset.color === color) {
             img.classList.add('active');
@@ -170,13 +209,13 @@ breakpoints: {
         });
       }
 
-      // Показываем первый цвет при загрузке
+      
       const firstDot = dots[0];
       if (firstDot) {
         showColor(firstDot.dataset.color);
       }
 
-      // Клик по точке
+     
       block.addEventListener('click', (e) => {
         const dot = e.target.closest('.cars_content_color_dot');
         if (!dot) return;
@@ -199,12 +238,12 @@ breakpoints: {
 
 
   Fancybox.bind("[data-fancybox]", {
-    // Настройки (опционально)
+   
     Thumbs: {
-      autoStart: true,     // включены
-      type: "classic",     // обычные миниатюры
+      autoStart: true,     
+      type: "classic",     
       showOnStart: true,
-      // Не обрезаем миниатюры    // миниатюры снизу — выключены
+      
     },
     Toolbar: {
       display: {
@@ -227,9 +266,9 @@ breakpoints: {
         maxScale: 3,
       },
     },
-    // Анимация
+   
     animated: true,
-    // Автостарт слайдшоу — выключен
+    
     slideshow: { autoStart: false },
   });
 
@@ -240,19 +279,19 @@ function startCountdown() {
 
     function getNextMonday() {
         const now = new Date();
-        const dayOfWeek = now.getDay(); // 0 = воскресенье, 1 = понедельник, ..., 6 = суббота
-        let daysUntilNextMonday = (8 - dayOfWeek) % 7; // Дни до следующего понедельника
+        const dayOfWeek = now.getDay(); 
+        let daysUntilNextMonday = (8 - dayOfWeek) % 7; 
 
-        // Если сегодня понедельник и время уже прошло 00:00, переходим к следующему
+       
         if (dayOfWeek === 1 && now.getHours() >= 0) {
-            daysUntilNextMonday = 7; // Следующий понедельник
+            daysUntilNextMonday = 7; 
         }
 
         const nextMonday = new Date(now);
         nextMonday.setDate(now.getDate() + daysUntilNextMonday);
-        nextMonday.setHours(0, 0, 0, 0); // Устанавливаем начало дня
+        nextMonday.setHours(0, 0, 0, 0); 
 
-        // Если nextMonday уже прошёл (из-за часового пояса), добавляем ещё неделю
+        
         if (nextMonday <= now) {
             nextMonday.setDate(nextMonday.getDate() + 7);
         }
@@ -262,10 +301,10 @@ function startCountdown() {
 
     function updateCountdown() {
         const now = new Date();
-        let diff = Math.floor((targetDate - now) / 1000); // Разница в секундах
+        let diff = Math.floor((targetDate - now) / 1000); 
 
         if (diff <= 0) {
-            // Если время истекло, переключаемся на следующий понедельник
+            
             targetDate = getNextMonday();
             diff = Math.floor((targetDate - now) / 1000);
         }
@@ -277,16 +316,16 @@ function startCountdown() {
         const minutes = Math.floor(diff / 60);
         const seconds = diff % 60;
 
-        // Убеждаемся, что значения не отрицательные
+        
         timerUnits[0].textContent = String(Math.max(0, days)).padStart(2, '0');
         timerUnits[1].textContent = String(Math.max(0, hours)).padStart(2, '0');
         timerUnits[2].textContent = String(Math.max(0, minutes)).padStart(2, '0');
         timerUnits[3].textContent = String(Math.max(0, seconds)).padStart(2, '0');
     }
 
-    // Обновляем таймер каждую секунду
+    
     const countdown = setInterval(updateCountdown, 1000);
-    // Вызываем сразу при загрузке для мгновенного отображения
+    
     updateCountdown();
 }startCountdown();
 
@@ -299,16 +338,16 @@ function startCountdown() {
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
 
-      // Получаем "чистый" номер телефона
+      
       let phone = '';
       const phoneInput = form.querySelector('input[name="phone"]');
       if (phoneInput) {
-        // Если есть Cleave — берём сырое значение, иначе — чистим вручную
+        
         const cleave = phoneInput._cleave || null;
         phone = cleave ? cleave.getRawValue() : phoneInput.value.replace(/\D/g, '');
       }
 
-      // Валидация: российский номер — 11 цифр (7XXXXXXXXXX)
+      
       if (phone.length !== 11) {
         alert('Пожалуйста, введите корректный номер телефона (11 цифр).');
         return;
@@ -341,11 +380,11 @@ function startCountdown() {
             ym(103340760, 'reachGoal', 'sendform');
           }
 
-          // Успех
+         
           form.reset();
           if (onSuccess) onSuccess();
 
-          // Показываем модалку успеха (если есть)
+          
           const successModal = document.getElementById('successModal');
           if (successModal) {
             successModal.classList.add('modal--active');
@@ -360,13 +399,13 @@ function startCountdown() {
     });
   };
 
-  // Применяем ко всем формам
+  
   sendForm('#modalForm', () => {
     const modal = document.getElementById('contactModal');
     if (modal) modal.classList.remove('modal--active');
   });
 
-  sendForm('#countdownForm'); // если есть такая форма
+  sendForm('#countdownForm'); 
   sendForm('#creditForm'); 
   sendForm('#TRADEINForm'); 
   sendForm('#testdriveForm'); 
@@ -405,7 +444,7 @@ function startCountdown() {
   const notice = document.getElementById('cookie-notice');
   const acceptBtn = document.getElementById('cookie-accept');
 
-  // Ключ в localStorage (срок жизни — 365 дней)
+  
   const COOKIE_KEY = 'cookie_accepted';
   const ONE_YEAR = 365 * 24 * 60 * 60 * 1000; 
 
@@ -422,7 +461,7 @@ function startCountdown() {
 
  
   acceptBtn.addEventListener('click', () => {
-    // Сохраняем согласие с текущей датой
+    
     localStorage.setItem(COOKIE_KEY, Date.now().toString());
 
    

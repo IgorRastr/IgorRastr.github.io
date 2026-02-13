@@ -31,7 +31,7 @@ try {
     }
 
     $mail->setFrom('jyoung@yandex.ru', 'CHERY-Липецк');
-    $mail->addAddress('sale@vo-lodka.ru');
+    $mail->addAddress('igorrastrast@yandex.ru');
     $mail->isHTML(true);
     $mail->Subject = 'Форма с лендинга CHERY-Липецк';
     $mail->Body = 'Пользователь оставил данные <br> Имя: ' . $name . '<br> Номер телефона: ' . $phone;
